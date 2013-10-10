@@ -5,11 +5,14 @@ Some useful classes and functions based on SpriteKit.
 
 ## Class
 
-*SKHelper*
+**SKHelper**
+
 Userful macro and func.
 
-*SKScene+Helper*
+**SKScene+Helper**
+
 Userful func to SKScene.
 
-*SKSpriteButtonNode*
+**SKSpriteButtonNode**
+
 Button node using sprite textures. 
