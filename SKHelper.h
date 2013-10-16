@@ -1,7 +1,7 @@
 
-#import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-
+#import "SKScene+Helper.h"
+#import "SKSpriteButtonNode.h"
 
 #define skp(x,y) CGPointMake(x,y)
 #define skpEquals CGPointEqualToPoint
