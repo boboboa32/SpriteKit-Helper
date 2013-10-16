@@ -5,7 +5,7 @@
 
 #define skp(x,y) CGPointMake(x,y)
 #define skpEquals CGPointEqualToPoint
-#define skColor4(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a/255.f]
+#define skColor4(r, g, b, a) [SKColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a/255.f]
 #define skColor3(r, g, b) skColor4(r, g, b, 255.f)
 
 static inline CGPoint skpNormalize(CGPoint pt) {
