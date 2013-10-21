@@ -8,11 +8,9 @@
 
 #import "SKScene+Helper.h"
 
-@implementation SKScene (Helper)
+@import QuartzCore;
 
-- (CGSize)winSize {
-    return self.frame.size;
-}
+@implementation SKScene (Helper)
 
 - (CGFloat)centerX {
     return CGRectGetMidX(self.frame);
@@ -20,6 +18,16 @@
 
 - (CGFloat)centerY {
     return CGRectGetMidY(self.frame);
+}
+
+- (void)debugPhysics {
+    for (SKSpriteNode *node in self.children) {
+        if (node.physicsBody) {
+            SKSpriteNode *debugNode = [SKSpriteNode spriteNodeWithColor:skColor4(0, 255, 0, 255*0.5)
+                                                                   size:node.frame.size];
+            [node addChild:debugNode];
+        }
+    }
 }
 
 @end

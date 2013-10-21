@@ -10,8 +10,8 @@
 
 @interface SKScene (Helper)
 
-- (CGSize)winSize;
 - (CGFloat)centerX;
 - (CGFloat)centerY;
+- (void)debugPhysics;
 
 @end
