@@ -12,6 +12,7 @@
     SKTexture *normalTexture_;
     SKTexture *selectedTexture_;
     void (^block_)(SKSpriteButtonNode *buttonNode);
+    void (^pressingBlock_)(SKSpriteButtonNode *buttonNode);
 }
 
 @property (nonatomic, strong) SKTexture *normalTexture;
@@ -38,6 +39,16 @@
 - (void)setBlock:(void(^)(id sender))block
 {
     block_ = [block copy];
+}
+
+- (void)setPressingBlock:(void(^)(id sender))block {
+    pressingBlock_ = [block copy];
+}
+
+- (void)pressing {
+    if (pressingBlock_) {
+        pressingBlock_(self);
+    }
 }
 
 - (void)selected {
@@ -90,10 +101,36 @@
                                         block:block];
 }
 
+- (instancetype)initWithNormalTexture:(SKTexture *)normalTexture
+                      selectedTexture:(SKTexture *)selectedTexture
+                        pressingBlock:(void(^)(SKSpriteButtonNode *buttonNode))pressingBlock
+                             endBlock:(void(^)(SKSpriteButtonNode *buttonNode))endBlock {
+    self = [super initWithTexture:normalTexture];
+    if (self) {
+        self.normalTexture = normalTexture;
+        self.selectedTexture = selectedTexture;
+        self.block = endBlock;
+        self.pressingBlock = pressingBlock;
+        self.userInteractionEnabled = YES;
+    }
+    return self;
+}
+
++ (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
+                            selectedTexture:(SKTexture *)selectedTexture
+                              pressingBlock:(void(^)(SKSpriteButtonNode *buttonNode))pressingBlock
+                                   endBlock:(void(^)(SKSpriteButtonNode *buttonNode))endBlock {
+    return [[self alloc] initWithNormalTexture:normalTexture
+                               selectedTexture:selectedTexture
+                                 pressingBlock:pressingBlock
+                                      endBlock:endBlock];
+}
+
 #pragma mark - Touch Event
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self selected];
+    [self pressing];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
