@@ -19,9 +19,9 @@
                               pressingBlock:(void(^)(id buttonNode))pressingBlock
                                    endBlock:(void(^)(id buttonNode))endBlock;
 
-/*
- * @backgroundTexture   background texture for the button
- * @labelNode           label node on top of background texture and in the center
+/**
+ *  @param backgroundTexture background texture for the button
+ *  @param labelNode         abel node on top of background texture and in the center
  */
 + (instancetype)buttonWithBackgroundTexture:(SKTexture *)backgroundTexture
                                   labelNode:(SKLabelNode *)labelNode
