@@ -95,7 +95,7 @@
 
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
-                                     block:(void(^)(SKSpriteButtonNode *buttonNode))block {
+                                     block:(void(^)(id buttonNode))block {
     return [[self alloc] initWithNormalTexture:normalTexture
                                selectedTexture:selectedTexture
                                         block:block];
@@ -103,8 +103,8 @@
 
 - (instancetype)initWithNormalTexture:(SKTexture *)normalTexture
                       selectedTexture:(SKTexture *)selectedTexture
-                        pressingBlock:(void(^)(SKSpriteButtonNode *buttonNode))pressingBlock
-                             endBlock:(void(^)(SKSpriteButtonNode *buttonNode))endBlock {
+                        pressingBlock:(void(^)(id buttonNode))pressingBlock
+                             endBlock:(void(^)(id buttonNode))endBlock {
     self = [super initWithTexture:normalTexture];
     if (self) {
         self.normalTexture = normalTexture;
@@ -118,12 +118,33 @@
 
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
-                              pressingBlock:(void(^)(SKSpriteButtonNode *buttonNode))pressingBlock
-                                   endBlock:(void(^)(SKSpriteButtonNode *buttonNode))endBlock {
+                              pressingBlock:(void(^)(id buttonNode))pressingBlock
+                                   endBlock:(void(^)(id buttonNode))endBlock {
     return [[self alloc] initWithNormalTexture:normalTexture
                                selectedTexture:selectedTexture
                                  pressingBlock:pressingBlock
                                       endBlock:endBlock];
+}
+
+- (instancetype)initWithBackgroundTexture:(SKTexture *)backgroundTexture
+                                  labelNode:(SKLabelNode *)labelNode
+                                      block:(void(^)(id buttonNode))block {
+    SKSpriteButtonNode *button = [SKSpriteButtonNode buttonNodeWithNormalTexture:backgroundTexture
+                                                                 selectedTexture:nil
+                                                                           block:block];
+    labelNode.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    labelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    labelNode.position = skp0;
+    [button addChild:labelNode];
+    return button;
+}
+
++ (instancetype)buttonWithBackgroundTexture:(SKTexture *)backgroundTexture
+                                  labelNode:(SKLabelNode *)labelNode
+                                      block:(void(^)(id buttonNode))block {
+    return [[self alloc] initWithBackgroundTexture:backgroundTexture
+                                         labelNode:labelNode
+                                             block:block];
 }
 
 #pragma mark - Touch Event

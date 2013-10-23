@@ -31,7 +31,7 @@
                 rectColor = skColor4(255, 0, 0, 255*0.5);
             }
             
-            SKSpriteNode *debugNode = [SKSpriteNode spriteNodeWithColor:skColor4(0, 255, 0, 255*0.5)
+            SKSpriteNode *debugNode = [SKSpriteNode spriteNodeWithColor:rectColor
                                                                    size:node.frame.size];
             [node addChild:debugNode];
         }
