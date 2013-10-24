@@ -1,4 +1,4 @@
-SpriteKit-Extension
+SpriteKit-Helper
 ===================
 
 Some useful classes and functions based on SpriteKit.
