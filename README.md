@@ -17,6 +17,10 @@ Userful func to SKScene.
 
 Button node using sprite textures. 
 
+**SKMusicPlayer**
+
+Singleton to play music and sound.
+
 ## How to use
 
 `#import "SKHelper.h"` in 'Prefix header' file.
