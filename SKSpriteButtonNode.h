@@ -10,18 +10,42 @@
 
 @interface SKSpriteButtonNode : SKSpriteNode
 
+/**
+ *  Create button with textures
+ *
+ *  @param normalTexture   unselected texture
+ *  @param selectedTexture selected texture, can be nil
+ *  @param block           run after touch end
+ *
+ *  @return button node
+ */
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
                                       block:(void(^)(id buttonNode))block;
 
+/**
+ *  Create button with textures and two blocks
+ *
+ *  @param normalTexture   unselected texture
+ *  @param selectedTexture selected texture, can be nil
+ *  @param pressingBlock   run after touch began
+ *  @param endBlock        run after touch end
+ *
+ *  @return button node
+ */
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
                               pressingBlock:(void(^)(id buttonNode))pressingBlock
                                    endBlock:(void(^)(id buttonNode))endBlock;
 
 /**
- *  @param backgroundTexture background texture for the button
- *  @param labelNode         abel node on top of background texture and in the center
+ *  Create button with a background texture and a label in the center of button
+ *
+ *  @param backgroundTexture background texture
+ *  @param labelNode         label in the center
+ *  @param block             run after touch end
+ *
+ *  @return button node
  */
 + (instancetype)buttonWithBackgroundTexture:(SKTexture *)backgroundTexture
                                   labelNode:(SKLabelNode *)labelNode

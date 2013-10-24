@@ -6,8 +6,8 @@
 #define skp(x,y) CGPointMake(x,y)
 #define skp0 CGPointZero
 #define skpEquals CGPointEqualToPoint
-#define skColor4(r, g, b, a) [SKColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a/255.f]
-#define skColor3(r, g, b) skColor4(r, g, b, 255.f)
+#define skColor4(r, g, b, a) [SKColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define skColor3(r, g, b) skColor4(r, g, b, 1.0f)
 #define skRandom(x,y) (x + arc4random() % (int)(y-x))
 
 static inline CGPoint skpNormalize(CGPoint pt) {
