@@ -2,6 +2,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "SKScene+Helper.h"
 #import "SKSpriteButtonNode.h"
+#import "SKMusicPlayer.h"
 
 #define skp(x,y) CGPointMake(x,y)
 #define skp0 CGPointZero

@@ -32,10 +32,31 @@
                 musicType:(NSString *)fileType;
 
 /**
+ *  Stop playing music, can't resume
+ */
+- (void)stop;
+
+/**
+ *  Pause playing
+ */
+- (void)pause;
+
+/**
+ *  resume playing
+ */
+- (void)resume;
+
+/**
  *  Play sound effect
  *
  *  @param file whole file name, such as 'hit.wav'
+ *  @param node node to play, use SKScene
  */
-- (void)playSoundEffectWithFile:(NSString *)file;
+- (void)playSoundEffectWithFile:(NSString *)file inNode:(SKNode *)node;
+
+/**
+ *  @param block run block after playing sound
+ */
+- (void)playSoundEffectWithFile:(NSString *)file inNode:(SKNode *)node completion:(void (^)())block;
 
 @end

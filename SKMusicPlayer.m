@@ -16,11 +16,13 @@
 }
 
 @property (nonatomic) AVAudioPlayer *musicPlayer;
-@property (nonatomic) SKNode *soundPlayNode;
 
 @end
 
 @implementation SKMusicPlayer
+
+@synthesize musicAvaliable = musicAvaliable_;
+@synthesize soundAvaliable = soundAvaliable_;
 
 + (instancetype)musicPlayer {
     static SKMusicPlayer *backgroundMusicPlayer_ = nil;
@@ -36,8 +38,6 @@
     if (self) {
         musicAvaliable_ = YES;
         soundAvaliable_ = YES;
-        
-        self.soundPlayNode = [SKNode node];
     }
     return self;
 }
@@ -58,6 +58,25 @@
     [self.musicPlayer play];
 }
 
+- (void)stop {
+    if (self.musicPlayer) {
+        [self.musicPlayer stop];
+        self.musicPlayer = nil;
+    }
+}
+
+- (void)pause {
+    if (self.musicPlayer) {
+        [self.musicPlayer pause];
+    }
+}
+
+- (void)resume {
+    if (self.musicPlayer && [self.musicPlayer prepareToPlay]) {
+        [self.musicPlayer play];
+    }
+}
+
 - (void)setMusicAvaliable:(BOOL)musicAvaliable {
     if (musicAvaliable_ != musicAvaliable) {
         musicAvaliable_ = musicAvaliable;
@@ -75,9 +94,13 @@
     return musicAvaliable_;
 }
 
-- (void)playSoundEffectWithFile:(NSString *)file {
+- (void)playSoundEffectWithFile:(NSString *)file inNode:(SKNode *)node {
+    [self playSoundEffectWithFile:file inNode:node completion:nil];
+}
+
+- (void)playSoundEffectWithFile:(NSString *)file inNode:(SKNode *)node completion:(void (^)())block {
     if (self.soundAvaliable) {
-        [self.soundPlayNode runAction:[SKAction playSoundFileNamed:file waitForCompletion:NO]];
+        [node runAction:[SKAction playSoundFileNamed:file waitForCompletion:NO] completion:block];
     }
 }
 
