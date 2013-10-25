@@ -80,25 +80,13 @@
 		block_(self);
 }
 
-- (instancetype)initWithNormalTexture:(SKTexture *)normalTexture
-                      selectedTexture:(SKTexture *)selectedTexture
-                               block:(void(^)(id sender))block {
-    self = [super initWithTexture:normalTexture];
-    if (self) {
-        self.normalTexture = normalTexture;
-        self.selectedTexture = selectedTexture;
-        self.block = block;
-        self.userInteractionEnabled = YES;
-    }
-    return self;
-}
-
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
                                      block:(void(^)(id buttonNode))block {
     return [[self alloc] initWithNormalTexture:normalTexture
                                selectedTexture:selectedTexture
-                                        block:block];
+                                 pressingBlock:nil
+                                      endBlock:block];
 }
 
 - (instancetype)initWithNormalTexture:(SKTexture *)normalTexture
@@ -150,6 +138,10 @@
 #pragma mark - Touch Event
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (self.hidden || self.parent.hidden) {
+        return;
+    }
+    
     [self selected];
     [self pressing];
 }
@@ -159,8 +151,10 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self unSelected];
-    [self activate];
+    if (self.isSelected) {
+        [self unSelected];
+        [self activate];
+    }
 }
 
 @end
