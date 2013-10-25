@@ -3,6 +3,9 @@
 #import "SKScene+Helper.h"
 #import "SKSpriteButtonNode.h"
 #import "SKMusicPlayer.h"
+#import "SKSpriteNode+Helper.h"
+
+#define SKDebug 1
 
 #define skp(x,y) CGPointMake(x,y)
 #define skp0 CGPointZero

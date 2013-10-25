@@ -20,22 +20,4 @@
     return CGRectGetMidY(self.frame);
 }
 
-- (void)debugPhysics {
-    for (SKSpriteNode *node in self.children) {
-        if (node.physicsBody) {
-            SKColor *rectColor;
-            if (node.physicsBody.dynamic) {
-                rectColor = skColor4(0, 255, 0, 0.5);
-            }
-            else {
-                rectColor = skColor4(255, 0, 0, 0.5);
-            }
-            
-            SKSpriteNode *debugNode = [SKSpriteNode spriteNodeWithColor:rectColor
-                                                                   size:node.frame.size];
-            [node addChild:debugNode];
-        }
-    }
-}
-
 @end

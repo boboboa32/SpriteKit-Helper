@@ -20,12 +20,4 @@
  */
 - (CGFloat)centerY;
 
-/**
- *  for physics debug
- *  called after all initializaion
- *  will draw a green trasparent rect on dynamic physics body
- *  and red trasparent rect on static physics body
- */
-- (void)debugPhysics;
-
 @end
