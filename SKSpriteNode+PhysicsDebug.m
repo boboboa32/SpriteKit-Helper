@@ -1,16 +1,16 @@
 //
-//  SKSpriteNode+Helper.m
+//  SKSpriteNode+PhysicsDebug.m
 //  YoyoMonkey-SK
 //
-//  Created by scnfex on 10/25/13.
-//  Copyright (c) 2013 MopCat Games. All rights reserved.
+//  Created by Bobo Shone on 13-10-28.
+//  Copyright (c) 2013年 MopCat Games. All rights reserved.
 //
 
-#import "SKSpriteNode+Helper.h"
+#import "SKSpriteNode+PhysicsDebug.h"
 
-@implementation SKSpriteNode (Helper)
+@implementation SKSpriteNode (PhysicsDebug)
 
-- (CGPathRef)rectanglePath {
+- (UIBezierPath *)rectanglePath {
     CGMutablePathRef path = CGPathCreateMutable();
     
     CGRect rect = CGRectMake(-self.size.width * self.anchorPoint.x,
@@ -18,10 +18,10 @@
                              self.size.width,
                              self.size.height);
     CGPathAddRect(path, NULL, rect);
-    return path;
+    return [UIBezierPath bezierPathWithCGPath:path];
 }
 
-- (CGPathRef)circlePath {
+- (UIBezierPath *)circlePath {
     CGMutablePathRef path = CGPathCreateMutable();
     
     CGFloat radius;
@@ -38,10 +38,10 @@
                              radius * 2);
     
     CGPathAddRoundedRect(path, NULL, rect, radius, radius);
-    return path;
+    return [UIBezierPath bezierPathWithCGPath:path];
 }
 
-- (void)debugPhysicsWithPath:(CGPathRef)path {
+- (void)debugPhysicsWithPath:(UIBezierPath *)path {
 #ifdef SKDebug
     if (!self.physicsBody) {
         return;
@@ -56,11 +56,12 @@
     }
     
     SKShapeNode *debugNode = [SKShapeNode node];
-    debugNode.path = CGPathCreateCopy(path);
+    debugNode.path = path.CGPath;
     debugNode.fillColor = rectColor;
     debugNode.lineWidth = 0.1;
     [self addChild:debugNode];
 #endif
 }
+
 
 @end

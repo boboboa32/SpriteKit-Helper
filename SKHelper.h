@@ -3,7 +3,7 @@
 #import "SKScene+Helper.h"
 #import "SKSpriteButtonNode.h"
 #import "SKMusicPlayer.h"
-#import "SKSpriteNode+Helper.h"
+#import "SKSpriteNode+PhysicsDebug.h"
 
 #define SKDebug 1
 

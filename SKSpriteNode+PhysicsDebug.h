@@ -1,22 +1,21 @@
 //
-//  SKSpriteNode+Helper.h
+//  SKSpriteNode+PhysicsDebug.h
 //  YoyoMonkey-SK
 //
-//  Created by scnfex on 10/25/13.
-//  Copyright (c) 2013 MopCat Games. All rights reserved.
+//  Created by Bobo Shone on 13-10-28.
+//  Copyright (c) 2013年 MopCat Games. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
 
-
-@interface SKSpriteNode (Helper)
+@interface SKSpriteNode (PhysicsDebug)
 
 /**
  *  Caculate rectangle body path
  *
  *  @return path of rectangle body
  */
-- (CGPathRef)rectanglePath;
+- (UIBezierPath *)rectanglePath;
 
 
 /**
@@ -24,15 +23,15 @@
  *
  *  @return path of circle body
  */
-- (CGPathRef)circlePath;
+- (UIBezierPath *)circlePath;
 
 /**
  *  Debug physics with path with colored shape
  *  Use it when finish setup physics body with body's path
  *  Disable debug by setting |SKDebug| to 0 in 'SKHelper.h'
- *  
+ *
  *  @param path physicas body's path
  */
-- (void)debugPhysicsWithPath:(CGPathRef)path;
+- (void)debugPhysicsWithPath:(UIBezierPath *)path;
 
 @end
