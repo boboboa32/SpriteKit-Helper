@@ -42,7 +42,7 @@
 }
 
 - (void)debugPhysicsWithPath:(UIBezierPath *)path {
-#ifdef SKDebug
+#if SKDebug
     if (!self.physicsBody) {
         return;
     }
