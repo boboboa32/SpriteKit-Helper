@@ -41,27 +41,61 @@
     return [UIBezierPath bezierPathWithCGPath:path];
 }
 
+- (UIBezierPath *)edgePathFromPoint:(CGPoint)p1 toPoint:(CGPoint)p2 {
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, p1.x, p1.y);
+    CGPathAddLineToPoint(path, NULL, p2.x, p2.y);
+    return [UIBezierPath bezierPathWithCGPath:path];
+}
+
 - (void)debugPhysicsWithPath:(UIBezierPath *)path {
+    [self debugPhysicsWithPath:path bodyType:kSKPhysicsBodyTypeShape];
+}
+
+- (void)debugPhysicsWithPath:(UIBezierPath *)path
+                    bodyType:(SKPhysicsBodyType)bodyType {
 #if SKDebug
     if (!self.physicsBody) {
         return;
     }
     
-    SKColor *rectColor;
-    if (self.physicsBody.dynamic) {
-        rectColor = skColor4(0, 255, 0, 0.5);
-    }
-    else {
-        rectColor = skColor4(255, 0, 0, 0.5);
-    }
-    
     SKShapeNode *debugNode = [SKShapeNode node];
     debugNode.path = path.CGPath;
-    debugNode.fillColor = rectColor;
     debugNode.lineWidth = 0.1;
+    
+    SKColor *color;
+
+    if (bodyType == kSKPhysicsBodyTypeShape) {
+        if (self.physicsBody.dynamic) {
+            color = skColor4(0, 255, 0, 0.5);
+        }
+        else {
+            color = skColor4(255, 0, 0, 0.5);
+        }
+        
+        debugNode.fillColor = color;
+    }
+    else {
+        color = skColor4(255, 0, 0, 0.5);
+        
+        debugNode.strokeColor = color;
+    }
+    
     [self addChild:debugNode];
 #endif
 }
 
+- (void)debugPhysicsWithRectanglePath {
+    [self debugPhysicsWithPath:[self rectanglePath]];
+}
+
+- (void)debugPhysicsWithCirclePath {
+    [self debugPhysicsWithPath:[self circlePath]];
+}
+
+- (void)debugPhysicsWithEdgePathFromPoint:(CGPoint)p1 toPoint:(CGPoint)p2 {
+    [self debugPhysicsWithPath:[self edgePathFromPoint:p1 toPoint:p2]
+                      bodyType:kSKPhysicsBodyTypeEdge];
+}
 
 @end
