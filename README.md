@@ -21,7 +21,7 @@ Button node using sprite textures.
 
 Singleton to play music and sound.
 
-**SKSpriteNode+Helper**
+**SKSpriteNode+PhysicsDebug**
 
 Useful func to debug physics.
 
@@ -30,6 +30,10 @@ Useful func to debug physics.
 ## How to use
 
 `#import "SKHelper.h"` in 'Prefix header' file.
+
+## Example
+
+[YoyoMonkey-SK](https://github.com/boboboa32/YoyoMonkey-SK) is a example game using 'SpriteKit-Helper'.
 
 ## Licence
 
