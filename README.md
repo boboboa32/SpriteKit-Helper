@@ -25,7 +25,7 @@ Singleton to play music and sound.
 
 Useful func to debug physics.
 
-![](http://d.pcs.baidu.com/thumbnail/d773ac1818f87219e1b7acf4c508d282?fid=1007019899-250528-778825012&time=1382683981&rt=pr&sign=FDTAR-DCb740ccc5511e5e8fedcff06b081203-h1VsPJOP4ca3OJKW7ZoEFtC7ArM%3D&expires=8h&r=595311452&size=c850_u580&quality=100)
+![ScreenShot](https://raw.github.com/boboboa32/SpriteKit-Helper/master/screenshot.jpg)
 
 ## How to use
 
