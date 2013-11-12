@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 MopCat Games. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "SKHelper.h"
 
 typedef enum {
     kSKPhysicsBodyTypeShape = 0,

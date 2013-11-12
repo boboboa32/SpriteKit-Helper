@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 MopCat Games. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "SKHelper.h"
 
 @interface SKMusicPlayer : NSObject
 
