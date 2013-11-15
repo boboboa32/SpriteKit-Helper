@@ -29,7 +29,11 @@ Useful func to debug physics.
 
 ## How to use
 
-`#import "SKHelper.h"` in 'Prefix header' file.
+`#import "SpriteKit-Helper.h"` in `Prefix header` file.
+
+### Cocospods
+
+`pod 'SpriteKit-Helper'` in `Podfile` file.
 
 ## Example
 
