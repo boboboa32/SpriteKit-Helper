@@ -35,10 +35,6 @@ Useful func to debug physics.
 
 `pod 'SpriteKit-Helper'` in `Podfile` file.
 
-## Example
-
-[YoyoMonkey-SK](https://github.com/boboboa32/YoyoMonkey-SK) is a example game using 'SpriteKit-Helper'.
-
 ## Licence
 
 The MIT License (MIT)
