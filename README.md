@@ -1,4 +1,4 @@
-SpriteKit-Helper
+SpriteKit-Helper    [![Build Status](https://travis-ci.org/boboboa32/SpriteKit-Helper.png?branch=master)](https://travis-ci.org/boboboa32/SpriteKit-Helper)
 ===================
 
 Some useful classes and functions based on SpriteKit.
