@@ -50,6 +50,8 @@ typedef enum {
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
+        [[SKMusicPlayer musicPlayer] playWithMusicName:@"bg" musicType:@"mp3"];
+        
         [self startGame];
     }
     return self;
