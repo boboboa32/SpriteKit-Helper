@@ -50,4 +50,18 @@
 + (instancetype)buttonWithBackgroundTexture:(SKTexture *)backgroundTexture
                                   labelNode:(SKLabelNode *)labelNode
                                       block:(void(^)(id buttonNode))block;
+
+/**
+ *  Create button with highlighted state, like a on/off button
+ *
+ *  @param normalTexture      unselected texture
+ *  @param highlightedTexture highlighted texture
+ *  @param block              block
+ *
+ *  @return button node
+ */
++ (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
+                         highlightedTexture:(SKTexture *)highlightedTexture
+                                      block:(void(^)(id buttonNode, BOOL highlighted))block;
+
 @end

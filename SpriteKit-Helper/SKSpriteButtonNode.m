@@ -9,20 +9,43 @@
 #import "SKSpriteButtonNode.h"
 
 @interface SKSpriteButtonNode () {
-    SKTexture *_normalTexture;
-    SKTexture *_selectedTexture;
     void (^_block)(SKSpriteButtonNode *buttonNode);
     void (^_pressingBlock)(SKSpriteButtonNode *buttonNode);
+    void (^_highlightedBlock)(SKSpriteButtonNode *buttonNode, BOOL highlighted);
 }
 
 @property (nonatomic) SKTexture *normalTexture;
 @property (nonatomic) SKTexture *selectedTexture;
+@property (nonatomic) SKTexture *highlightedTexture;
+
 @property (nonatomic) BOOL isSelected;
+@property (nonatomic) BOOL isHighlighted;
 
 @end
 
 
 @implementation SKSpriteButtonNode
+
++ (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
+                         highlightedTexture:(SKTexture *)highlightedTexture
+                                      block:(void(^)(id buttonNode, BOOL highlighted))block {
+    return [[self alloc] initWithNormalTexture:normalTexture
+                            highlightedTexture:highlightedTexture
+                                         block:block];
+}
+
+- (instancetype)initWithNormalTexture:(SKTexture *)normalTexture
+                   highlightedTexture:(SKTexture *)highlightedTexture
+                                block:(void(^)(id buttonNode, BOOL highlighted))block {
+    self = [super initWithTexture:normalTexture];
+    if (self) {
+        self.normalTexture = normalTexture;
+        self.highlightedTexture = highlightedTexture;
+        self.highlightedBlock = block;
+        self.userInteractionEnabled = YES;
+    }
+    return self;
+}
 
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
@@ -103,6 +126,10 @@
     _pressingBlock = [block copy];
 }
 
+- (void)setHighlightedBlock:(void(^)(id sender, BOOL b))block {
+    _highlightedBlock = [block copy];
+}
+
 - (void)pressing {
     if (_pressingBlock) {
         _pressingBlock(self);
@@ -138,6 +165,23 @@
 		_block(self);
 }
 
+- (void)highlighted {
+    if (self.highlightedTexture) {
+        self.isHighlighted = !self.isHighlighted;
+        
+        if (self.isHighlighted) {
+            [self setTexture:self.highlightedTexture];
+        }
+        else {
+            [self setTexture:self.normalTexture];
+        }
+        
+        if (_highlightedBlock) {
+            _highlightedBlock(self, self.isHighlighted);
+        }
+    }
+}
+
 #pragma mark - Touch Event
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -157,6 +201,8 @@
     if (self.isSelected) {
         [self unSelected];
         [self activate];
+        
+        [self highlighted];
     }
 }
 

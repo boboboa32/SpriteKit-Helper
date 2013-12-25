@@ -43,6 +43,10 @@
 		8A14E771186963BC001CC69E /* spacemonkey_fly_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E755186963BC001CC69E /* spacemonkey_fly_2.png */; };
 		8A14E772186963BC001CC69E /* spacemonkey_fly_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E756186963BC001CC69E /* spacemonkey_fly_2@2x.png */; };
 		8AAF2EB8186A877100E66F8F /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8AAF2EB7186A877100E66F8F /* bg.mp3 */; };
+		8AAF2EC5186AB45100E66F8F /* button_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAF2EC1186AB45100E66F8F /* button_pause.png */; };
+		8AAF2EC6186AB45100E66F8F /* button_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAF2EC2186AB45100E66F8F /* button_pause@2x.png */; };
+		8AAF2EC7186AB45100E66F8F /* button_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAF2EC3186AB45100E66F8F /* button_play.png */; };
+		8AAF2EC8186AB45100E66F8F /* button_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAF2EC4186AB45100E66F8F /* button_play@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,10 @@
 		8A14E755186963BC001CC69E /* spacemonkey_fly_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacemonkey_fly_2.png; sourceTree = "<group>"; };
 		8A14E756186963BC001CC69E /* spacemonkey_fly_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spacemonkey_fly_2@2x.png"; sourceTree = "<group>"; };
 		8AAF2EB7186A877100E66F8F /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
+		8AAF2EC1186AB45100E66F8F /* button_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pause.png; sourceTree = "<group>"; };
+		8AAF2EC2186AB45100E66F8F /* button_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pause@2x.png"; sourceTree = "<group>"; };
+		8AAF2EC3186AB45100E66F8F /* button_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_play.png; sourceTree = "<group>"; };
+		8AAF2EC4186AB45100E66F8F /* button_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_play@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +254,10 @@
 				8A14E754186963BC001CC69E /* spacemonkey_fly_1@2x.png */,
 				8A14E755186963BC001CC69E /* spacemonkey_fly_2.png */,
 				8A14E756186963BC001CC69E /* spacemonkey_fly_2@2x.png */,
+				8AAF2EC1186AB45100E66F8F /* button_pause.png */,
+				8AAF2EC2186AB45100E66F8F /* button_pause@2x.png */,
+				8AAF2EC3186AB45100E66F8F /* button_play.png */,
+				8AAF2EC4186AB45100E66F8F /* button_play@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -327,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A14E76D186963BC001CC69E /* spacemonkey_dead_2.png in Resources */,
+				8AAF2EC5186AB45100E66F8F /* button_pause.png in Resources */,
 				8A14E6BD18692D23001CC69E /* InfoPlist.strings in Resources */,
 				8A14E772186963BC001CC69E /* spacemonkey_fly_2@2x.png in Resources */,
 				8AAF2EB8186A877100E66F8F /* bg.mp3 in Resources */,
@@ -334,11 +347,14 @@
 				8A14E6D018692D23001CC69E /* Images.xcassets in Resources */,
 				8A14E771186963BC001CC69E /* spacemonkey_fly_2.png in Resources */,
 				8A14E761186963BC001CC69E /* asteroid_2.png in Resources */,
+				8AAF2EC6186AB45100E66F8F /* button_pause@2x.png in Resources */,
 				8A14E76E186963BC001CC69E /* spacemonkey_dead_2@2x.png in Resources */,
 				8A14E6C618692D23001CC69E /* Main.storyboard in Resources */,
+				8AAF2EC7186AB45100E66F8F /* button_play.png in Resources */,
 				8A14E762186963BC001CC69E /* asteroid_2@2x.png in Resources */,
 				8A14E75F186963BC001CC69E /* asteroid_1.png in Resources */,
 				8A14E76B186963BC001CC69E /* spacemonkey_dead_1.png in Resources */,
+				8AAF2EC8186AB45100E66F8F /* button_play@2x.png in Resources */,
 				8A14E76F186963BC001CC69E /* spacemonkey_fly_1.png in Resources */,
 				8A14E770186963BC001CC69E /* spacemonkey_fly_1@2x.png in Resources */,
 				8A14E764186963BC001CC69E /* bg@2x.png in Resources */,

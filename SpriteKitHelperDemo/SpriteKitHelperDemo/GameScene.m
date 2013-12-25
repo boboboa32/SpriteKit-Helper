@@ -10,16 +10,20 @@
 
 static NSString *kRockName                  = @"rock";
 static NSString *kBackgroundName            = @"background";
+static NSString *kPauseLabelName            = @"pauseLabel";
+
 static NSString *kMonkeyFlyAnimationKey     = @"MonkeyFly";
 static NSString *kMonkeyDieAnimationKey     = @"MonkeyDie";
 static NSString *kMonkeyMoveDirectionKey    = @"MonkeyMoveDirection";
+static NSString *kGenerateRockActionKey     = @"GenerateRock";
 
 static const uint32_t kCategoryBitMaskMonkey    = 0x1 << 0;
 static const uint32_t kCategoryBitMaskRock      = 0x1 << 1;
 
 enum ZPosition {
     kZPositionBackground = 0,
-    kZPositionObject
+    kZPositionObject,
+    kZPositionMenu
     };
 
 enum MoveDirection {
@@ -30,7 +34,8 @@ enum MoveDirection {
 
 typedef enum {
     kGameStateRunning = 0,
-    kGameStateGameOver
+    kGameStateGameOver,
+    kGameStatePause
 } GameState;
 
 @interface GameScene () <SKPhysicsContactDelegate, UIAlertViewDelegate>
@@ -178,10 +183,25 @@ typedef enum {
     
     [self createMonkey];
     
+    SKSpriteButtonNode *pauseBtn = [SKSpriteButtonNode buttonNodeWithNormalTexture:[SKTexture textureWithImageNamed:@"button_pause"]
+                                                                highlightedTexture:[SKTexture textureWithImageNamed:@"button_play"]
+                                                                             block:^(id buttonNode, BOOL highlighted) {
+                                                                                 if (highlighted) {
+                                                                                     [self pauseGame];
+                                                                                 }
+                                                                                 else {
+                                                                                     [self resumeGame];
+                                                                                 }
+                                                                             }];
+    pauseBtn.zPosition = kZPositionMenu;
+    pauseBtn.position = skp(self.size.width - pauseBtn.size.width*0.5 - 10,
+                            self.size.height - pauseBtn.size.height*0.5- 10);
+    [self addChild:pauseBtn];
+    
     SKAction *rockGenerator = [SKAction repeatActionForever:[SKAction sequence:@[[SKAction waitForDuration:2 withRange:2],
                                                                                  [SKAction performSelector:@selector(generateRock)
                                                                                                   onTarget:self]]]];
-    [self runAction:rockGenerator];
+    [self runAction:rockGenerator withKey:kGenerateRockActionKey];
     
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"bg"];
     background.position = skp(self.centerX, background.size.height*0.5);
@@ -189,6 +209,32 @@ typedef enum {
     background.name = kBackgroundName;
     background.zPosition = kZPositionBackground;
     self.backgroundNum = 1;
+}
+
+- (void)pauseGame {
+    self.gameState = kGameStatePause;
+    
+    SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    label.fontSize = 50;
+    label.text = @"Game Pause";
+    label.position = skp(self.centerX, self.centerY);
+    label.zPosition = kZPositionMenu;
+    [self addChild:label];
+    label.name = kPauseLabelName;
+    
+    [self removeActionForKey:kGenerateRockActionKey];
+}
+
+- (void)resumeGame {
+    self.gameState = kGameStateRunning;
+    
+    SKNode *pauseLabel = [self childNodeWithName:kPauseLabelName];
+    [pauseLabel removeFromParent];
+    
+    SKAction *rockGenerator = [SKAction repeatActionForever:[SKAction sequence:@[[SKAction waitForDuration:2 withRange:2],
+                                                                                 [SKAction performSelector:@selector(generateRock)
+                                                                                                  onTarget:self]]]];
+    [self runAction:rockGenerator withKey:kGenerateRockActionKey];
 }
 
 #pragma mark - Selector
