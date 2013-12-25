@@ -9,76 +9,20 @@
 #import "SKSpriteButtonNode.h"
 
 @interface SKSpriteButtonNode () {
-    SKTexture *normalTexture_;
-    SKTexture *selectedTexture_;
-    void (^block_)(SKSpriteButtonNode *buttonNode);
-    void (^pressingBlock_)(SKSpriteButtonNode *buttonNode);
+    SKTexture *_normalTexture;
+    SKTexture *_selectedTexture;
+    void (^_block)(SKSpriteButtonNode *buttonNode);
+    void (^_pressingBlock)(SKSpriteButtonNode *buttonNode);
 }
 
-@property (nonatomic, strong) SKTexture *normalTexture;
-@property (nonatomic, strong) SKTexture *selectedTexture;
+@property (nonatomic) SKTexture *normalTexture;
+@property (nonatomic) SKTexture *selectedTexture;
 @property (nonatomic) BOOL isSelected;
 
 @end
 
 
 @implementation SKSpriteButtonNode
-
-- (void)setNormalTexture:(SKTexture *)normalTexture {
-    if (normalTexture != normalTexture_) {
-        normalTexture_ = normalTexture;
-    }
-}
-
-- (void)setSelectedTexture:(SKTexture *)selectedTexture {
-    if (selectedTexture != selectedTexture_) {
-        selectedTexture_ = selectedTexture;
-    }
-}
-
-- (void)setBlock:(void(^)(id sender))block
-{
-    block_ = [block copy];
-}
-
-- (void)setPressingBlock:(void(^)(id sender))block {
-    pressingBlock_ = [block copy];
-}
-
-- (void)pressing {
-    if (pressingBlock_) {
-        pressingBlock_(self);
-    }
-}
-
-- (void)selected {
-    self.isSelected = YES;
-    
-    if (self.selectedTexture) {
-        [self setTexture:self.selectedTexture];
-    }
-    else {
-        self.colorBlendFactor = 0.25f;
-        self.color = [SKColor blackColor];
-    }
-}
-
-- (void)unSelected {
-    self.isSelected = NO;
-    
-    if (self.selectedTexture) {
-        [self setTexture:self.normalTexture];
-    }
-    else {
-        self.colorBlendFactor = 0.0f;
-    }
-}
-
--(void) activate
-{
-	if( block_ )
-		block_(self);
-}
 
 + (instancetype)buttonNodeWithNormalTexture:(SKTexture *)normalTexture
                             selectedTexture:(SKTexture *)selectedTexture
@@ -133,6 +77,65 @@
     return [[self alloc] initWithBackgroundTexture:backgroundTexture
                                          labelNode:labelNode
                                              block:block];
+}
+
+
+#pragma mark - Private 
+
+- (void)setNormalTexture:(SKTexture *)normalTexture {
+    if (normalTexture != _normalTexture) {
+        _normalTexture = normalTexture;
+    }
+}
+
+- (void)setSelectedTexture:(SKTexture *)selectedTexture {
+    if (selectedTexture != _selectedTexture) {
+        _selectedTexture = selectedTexture;
+    }
+}
+
+- (void)setBlock:(void(^)(id sender))block
+{
+    _block = [block copy];
+}
+
+- (void)setPressingBlock:(void(^)(id sender))block {
+    _pressingBlock = [block copy];
+}
+
+- (void)pressing {
+    if (_pressingBlock) {
+        _pressingBlock(self);
+    }
+}
+
+- (void)selected {
+    self.isSelected = YES;
+    
+    if (self.selectedTexture) {
+        [self setTexture:self.selectedTexture];
+    }
+    else {
+        self.colorBlendFactor = 0.25f;
+        self.color = [SKColor blackColor];
+    }
+}
+
+- (void)unSelected {
+    self.isSelected = NO;
+    
+    if (self.selectedTexture) {
+        [self setTexture:self.normalTexture];
+    }
+    else {
+        self.colorBlendFactor = 0.0f;
+    }
+}
+
+-(void) activate
+{
+	if( _block )
+		_block(self);
 }
 
 #pragma mark - Touch Event

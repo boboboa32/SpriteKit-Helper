@@ -16,14 +16,32 @@
 		8A14E6C318692D23001CC69E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6C218692D23001CC69E /* AppDelegate.m */; };
 		8A14E6C618692D23001CC69E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E6C418692D23001CC69E /* Main.storyboard */; };
 		8A14E6C918692D23001CC69E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6C818692D23001CC69E /* ViewController.m */; };
-		8A14E6CC18692D23001CC69E /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6CB18692D23001CC69E /* MyScene.m */; };
-		8A14E6CE18692D23001CC69E /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E6CD18692D23001CC69E /* Spaceship.png */; };
+		8A14E6CC18692D23001CC69E /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6CB18692D23001CC69E /* GameScene.m */; };
 		8A14E6D018692D23001CC69E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E6CF18692D23001CC69E /* Images.xcassets */; };
 		8A14E6D718692D23001CC69E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A14E6D618692D23001CC69E /* XCTest.framework */; };
 		8A14E6D818692D23001CC69E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A14E6B018692D22001CC69E /* Foundation.framework */; };
 		8A14E6D918692D23001CC69E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A14E6B418692D22001CC69E /* UIKit.framework */; };
 		8A14E6E118692D23001CC69E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E6DF18692D23001CC69E /* InfoPlist.strings */; };
 		8A14E6E318692D23001CC69E /* SpriteKitHelperDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6E218692D23001CC69E /* SpriteKitHelperDemoTests.m */; };
+		8A14E6F818692E0F001CC69E /* SKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6EE18692E0F001CC69E /* SKHelper.m */; };
+		8A14E6F918692E0F001CC69E /* SKMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F018692E0F001CC69E /* SKMusicPlayer.m */; };
+		8A14E6FA18692E0F001CC69E /* SKScene+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F218692E0F001CC69E /* SKScene+Helper.m */; };
+		8A14E6FB18692E0F001CC69E /* SKSpriteButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */; };
+		8A14E6FC18692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F618692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m */; };
+		8A14E75F186963BC001CC69E /* asteroid_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E743186963BC001CC69E /* asteroid_1.png */; };
+		8A14E760186963BC001CC69E /* asteroid_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E744186963BC001CC69E /* asteroid_1@2x.png */; };
+		8A14E761186963BC001CC69E /* asteroid_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E745186963BC001CC69E /* asteroid_2.png */; };
+		8A14E762186963BC001CC69E /* asteroid_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E746186963BC001CC69E /* asteroid_2@2x.png */; };
+		8A14E763186963BC001CC69E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E747186963BC001CC69E /* bg.png */; };
+		8A14E764186963BC001CC69E /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E748186963BC001CC69E /* bg@2x.png */; };
+		8A14E76B186963BC001CC69E /* spacemonkey_dead_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E74F186963BC001CC69E /* spacemonkey_dead_1.png */; };
+		8A14E76C186963BC001CC69E /* spacemonkey_dead_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E750186963BC001CC69E /* spacemonkey_dead_1@2x.png */; };
+		8A14E76D186963BC001CC69E /* spacemonkey_dead_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E751186963BC001CC69E /* spacemonkey_dead_2.png */; };
+		8A14E76E186963BC001CC69E /* spacemonkey_dead_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E752186963BC001CC69E /* spacemonkey_dead_2@2x.png */; };
+		8A14E76F186963BC001CC69E /* spacemonkey_fly_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E753186963BC001CC69E /* spacemonkey_fly_1.png */; };
+		8A14E770186963BC001CC69E /* spacemonkey_fly_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E754186963BC001CC69E /* spacemonkey_fly_1@2x.png */; };
+		8A14E771186963BC001CC69E /* spacemonkey_fly_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E755186963BC001CC69E /* spacemonkey_fly_2.png */; };
+		8A14E772186963BC001CC69E /* spacemonkey_fly_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E756186963BC001CC69E /* spacemonkey_fly_2@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,15 +69,39 @@
 		8A14E6C518692D23001CC69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A14E6C718692D23001CC69E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8A14E6C818692D23001CC69E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8A14E6CA18692D23001CC69E /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		8A14E6CB18692D23001CC69E /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		8A14E6CD18692D23001CC69E /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		8A14E6CA18692D23001CC69E /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		8A14E6CB18692D23001CC69E /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		8A14E6CF18692D23001CC69E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A14E6D518692D23001CC69E /* SpriteKitHelperDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpriteKitHelperDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A14E6D618692D23001CC69E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8A14E6DE18692D23001CC69E /* SpriteKitHelperDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpriteKitHelperDemoTests-Info.plist"; sourceTree = "<group>"; };
 		8A14E6E018692D23001CC69E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A14E6E218692D23001CC69E /* SpriteKitHelperDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteKitHelperDemoTests.m; sourceTree = "<group>"; };
+		8A14E6ED18692E0F001CC69E /* SKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHelper.h; sourceTree = "<group>"; };
+		8A14E6EE18692E0F001CC69E /* SKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHelper.m; sourceTree = "<group>"; };
+		8A14E6EF18692E0F001CC69E /* SKMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMusicPlayer.h; sourceTree = "<group>"; };
+		8A14E6F018692E0F001CC69E /* SKMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMusicPlayer.m; sourceTree = "<group>"; };
+		8A14E6F118692E0F001CC69E /* SKScene+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKScene+Helper.h"; sourceTree = "<group>"; };
+		8A14E6F218692E0F001CC69E /* SKScene+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKScene+Helper.m"; sourceTree = "<group>"; };
+		8A14E6F318692E0F001CC69E /* SKSpriteButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSpriteButtonNode.h; sourceTree = "<group>"; };
+		8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSpriteButtonNode.m; sourceTree = "<group>"; };
+		8A14E6F518692E0F001CC69E /* SKSpriteNode+PhysicsDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+PhysicsDebug.h"; sourceTree = "<group>"; };
+		8A14E6F618692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+PhysicsDebug.m"; sourceTree = "<group>"; };
+		8A14E6F718692E0F001CC69E /* SpriteKit-Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpriteKit-Helper.h"; sourceTree = "<group>"; };
+		8A14E743186963BC001CC69E /* asteroid_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid_1.png; sourceTree = "<group>"; };
+		8A14E744186963BC001CC69E /* asteroid_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "asteroid_1@2x.png"; sourceTree = "<group>"; };
+		8A14E745186963BC001CC69E /* asteroid_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid_2.png; sourceTree = "<group>"; };
+		8A14E746186963BC001CC69E /* asteroid_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "asteroid_2@2x.png"; sourceTree = "<group>"; };
+		8A14E747186963BC001CC69E /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		8A14E748186963BC001CC69E /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		8A14E74F186963BC001CC69E /* spacemonkey_dead_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacemonkey_dead_1.png; sourceTree = "<group>"; };
+		8A14E750186963BC001CC69E /* spacemonkey_dead_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spacemonkey_dead_1@2x.png"; sourceTree = "<group>"; };
+		8A14E751186963BC001CC69E /* spacemonkey_dead_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacemonkey_dead_2.png; sourceTree = "<group>"; };
+		8A14E752186963BC001CC69E /* spacemonkey_dead_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spacemonkey_dead_2@2x.png"; sourceTree = "<group>"; };
+		8A14E753186963BC001CC69E /* spacemonkey_fly_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacemonkey_fly_1.png; sourceTree = "<group>"; };
+		8A14E754186963BC001CC69E /* spacemonkey_fly_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spacemonkey_fly_1@2x.png"; sourceTree = "<group>"; };
+		8A14E755186963BC001CC69E /* spacemonkey_fly_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacemonkey_fly_2.png; sourceTree = "<group>"; };
+		8A14E756186963BC001CC69E /* spacemonkey_fly_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spacemonkey_fly_2@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,15 +163,16 @@
 		8A14E6B818692D22001CC69E /* SpriteKitHelperDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8A14E6EC18692E0F001CC69E /* SpriteKit-Helper */,
 				8A14E6C118692D23001CC69E /* AppDelegate.h */,
 				8A14E6C218692D23001CC69E /* AppDelegate.m */,
 				8A14E6C418692D23001CC69E /* Main.storyboard */,
 				8A14E6C718692D23001CC69E /* ViewController.h */,
 				8A14E6C818692D23001CC69E /* ViewController.m */,
-				8A14E6CA18692D23001CC69E /* MyScene.h */,
-				8A14E6CB18692D23001CC69E /* MyScene.m */,
-				8A14E6CD18692D23001CC69E /* Spaceship.png */,
+				8A14E6CA18692D23001CC69E /* GameScene.h */,
+				8A14E6CB18692D23001CC69E /* GameScene.m */,
 				8A14E6CF18692D23001CC69E /* Images.xcassets */,
+				8A14E7221869570D001CC69E /* Images */,
 				8A14E6B918692D22001CC69E /* Supporting Files */,
 			);
 			path = SpriteKitHelperDemo;
@@ -162,6 +205,46 @@
 				8A14E6DF18692D23001CC69E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A14E6EC18692E0F001CC69E /* SpriteKit-Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8A14E6ED18692E0F001CC69E /* SKHelper.h */,
+				8A14E6EE18692E0F001CC69E /* SKHelper.m */,
+				8A14E6EF18692E0F001CC69E /* SKMusicPlayer.h */,
+				8A14E6F018692E0F001CC69E /* SKMusicPlayer.m */,
+				8A14E6F118692E0F001CC69E /* SKScene+Helper.h */,
+				8A14E6F218692E0F001CC69E /* SKScene+Helper.m */,
+				8A14E6F318692E0F001CC69E /* SKSpriteButtonNode.h */,
+				8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */,
+				8A14E6F518692E0F001CC69E /* SKSpriteNode+PhysicsDebug.h */,
+				8A14E6F618692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m */,
+				8A14E6F718692E0F001CC69E /* SpriteKit-Helper.h */,
+			);
+			name = "SpriteKit-Helper";
+			path = "../../SpriteKit-Helper";
+			sourceTree = "<group>";
+		};
+		8A14E7221869570D001CC69E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8A14E743186963BC001CC69E /* asteroid_1.png */,
+				8A14E744186963BC001CC69E /* asteroid_1@2x.png */,
+				8A14E745186963BC001CC69E /* asteroid_2.png */,
+				8A14E746186963BC001CC69E /* asteroid_2@2x.png */,
+				8A14E747186963BC001CC69E /* bg.png */,
+				8A14E748186963BC001CC69E /* bg@2x.png */,
+				8A14E74F186963BC001CC69E /* spacemonkey_dead_1.png */,
+				8A14E750186963BC001CC69E /* spacemonkey_dead_1@2x.png */,
+				8A14E751186963BC001CC69E /* spacemonkey_dead_2.png */,
+				8A14E752186963BC001CC69E /* spacemonkey_dead_2@2x.png */,
+				8A14E753186963BC001CC69E /* spacemonkey_fly_1.png */,
+				8A14E754186963BC001CC69E /* spacemonkey_fly_1@2x.png */,
+				8A14E755186963BC001CC69E /* spacemonkey_fly_2.png */,
+				8A14E756186963BC001CC69E /* spacemonkey_fly_2@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,10 +323,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A14E76D186963BC001CC69E /* spacemonkey_dead_2.png in Resources */,
 				8A14E6BD18692D23001CC69E /* InfoPlist.strings in Resources */,
+				8A14E772186963BC001CC69E /* spacemonkey_fly_2@2x.png in Resources */,
+				8A14E763186963BC001CC69E /* bg.png in Resources */,
 				8A14E6D018692D23001CC69E /* Images.xcassets in Resources */,
-				8A14E6CE18692D23001CC69E /* Spaceship.png in Resources */,
+				8A14E771186963BC001CC69E /* spacemonkey_fly_2.png in Resources */,
+				8A14E761186963BC001CC69E /* asteroid_2.png in Resources */,
+				8A14E76E186963BC001CC69E /* spacemonkey_dead_2@2x.png in Resources */,
 				8A14E6C618692D23001CC69E /* Main.storyboard in Resources */,
+				8A14E762186963BC001CC69E /* asteroid_2@2x.png in Resources */,
+				8A14E75F186963BC001CC69E /* asteroid_1.png in Resources */,
+				8A14E76B186963BC001CC69E /* spacemonkey_dead_1.png in Resources */,
+				8A14E76F186963BC001CC69E /* spacemonkey_fly_1.png in Resources */,
+				8A14E770186963BC001CC69E /* spacemonkey_fly_1@2x.png in Resources */,
+				8A14E764186963BC001CC69E /* bg@2x.png in Resources */,
+				8A14E76C186963BC001CC69E /* spacemonkey_dead_1@2x.png in Resources */,
+				8A14E760186963BC001CC69E /* asteroid_1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +358,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A14E6CC18692D23001CC69E /* MyScene.m in Sources */,
+				8A14E6F918692E0F001CC69E /* SKMusicPlayer.m in Sources */,
+				8A14E6F818692E0F001CC69E /* SKHelper.m in Sources */,
+				8A14E6CC18692D23001CC69E /* GameScene.m in Sources */,
+				8A14E6FA18692E0F001CC69E /* SKScene+Helper.m in Sources */,
+				8A14E6FC18692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m in Sources */,
 				8A14E6C918692D23001CC69E /* ViewController.m in Sources */,
 				8A14E6C318692D23001CC69E /* AppDelegate.m in Sources */,
+				8A14E6FB18692E0F001CC69E /* SKSpriteButtonNode.m in Sources */,
 				8A14E6BF18692D23001CC69E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +577,7 @@
 				8A14E6E818692D23001CC69E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A14E6E918692D23001CC69E /* Build configuration list for PBXNativeTarget "SpriteKitHelperDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +586,7 @@
 				8A14E6EB18692D23001CC69E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
