@@ -33,7 +33,7 @@ Useful func to debug physics.
 
 ### Cocospods
 
-`pod 'SpriteKit-Helper'` in `Podfile` file.
+`pod 'SpriteKit-Helper', '~> 0.0.2'`
 
 ## Licence
 
