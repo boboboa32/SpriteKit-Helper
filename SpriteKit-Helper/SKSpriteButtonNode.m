@@ -94,6 +94,33 @@
     return button;
 }
 
+- (instancetype)initWithColor:(UIColor *)color
+                         size:(CGSize)size
+                    labelNode:(SKLabelNode *)labelNode
+                        block:(void(^)(id buttonNode))block {
+    self = [super initWithColor:color size:size];
+    if (self) {
+        labelNode.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        labelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+        labelNode.position = skp0;
+        [self addChild:labelNode];
+        
+        self.block = block;
+        self.userInteractionEnabled = YES;
+    }
+    return self;
+}
+
++ (instancetype)buttonNodeWithColor:(UIColor *)color
+                               size:(CGSize)size
+                          labelNode:(SKLabelNode *)labelNode
+                              block:(void(^)(id buttonNode))block; {
+    return [[self alloc] initWithColor:color
+                                  size:size
+                             labelNode:labelNode
+                                 block:block];
+}
+
 + (instancetype)buttonWithBackgroundTexture:(SKTexture *)backgroundTexture
                                   labelNode:(SKLabelNode *)labelNode
                                       block:(void(^)(id buttonNode))block {
@@ -143,8 +170,7 @@
         [self setTexture:self.selectedTexture];
     }
     else {
-        self.colorBlendFactor = 0.25f;
-        self.color = [SKColor blackColor];
+        self.alpha = 0.7;
     }
 }
 
@@ -155,7 +181,7 @@
         [self setTexture:self.normalTexture];
     }
     else {
-        self.colorBlendFactor = 0.0f;
+        self.alpha = 1;
     }
 }
 

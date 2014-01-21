@@ -64,4 +64,9 @@
                          highlightedTexture:(SKTexture *)highlightedTexture
                                       block:(void(^)(id buttonNode, BOOL highlighted))block;
 
++ (instancetype)buttonNodeWithColor:(UIColor *)color
+                               size:(CGSize)size
+                          labelNode:(SKLabelNode *)labelNode
+                              block:(void(^)(id buttonNode))block;
+
 @end
