@@ -27,7 +27,6 @@
 		8A14E6F918692E0F001CC69E /* SKMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F018692E0F001CC69E /* SKMusicPlayer.m */; };
 		8A14E6FA18692E0F001CC69E /* SKScene+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F218692E0F001CC69E /* SKScene+Helper.m */; };
 		8A14E6FB18692E0F001CC69E /* SKSpriteButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */; };
-		8A14E6FC18692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14E6F618692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m */; };
 		8A14E75F186963BC001CC69E /* asteroid_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E743186963BC001CC69E /* asteroid_1.png */; };
 		8A14E760186963BC001CC69E /* asteroid_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E744186963BC001CC69E /* asteroid_1@2x.png */; };
 		8A14E761186963BC001CC69E /* asteroid_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A14E745186963BC001CC69E /* asteroid_2.png */; };
@@ -90,8 +89,6 @@
 		8A14E6F218692E0F001CC69E /* SKScene+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKScene+Helper.m"; sourceTree = "<group>"; };
 		8A14E6F318692E0F001CC69E /* SKSpriteButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSpriteButtonNode.h; sourceTree = "<group>"; };
 		8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSpriteButtonNode.m; sourceTree = "<group>"; };
-		8A14E6F518692E0F001CC69E /* SKSpriteNode+PhysicsDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+PhysicsDebug.h"; sourceTree = "<group>"; };
-		8A14E6F618692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+PhysicsDebug.m"; sourceTree = "<group>"; };
 		8A14E6F718692E0F001CC69E /* SpriteKit-Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpriteKit-Helper.h"; sourceTree = "<group>"; };
 		8A14E743186963BC001CC69E /* asteroid_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid_1.png; sourceTree = "<group>"; };
 		8A14E744186963BC001CC69E /* asteroid_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "asteroid_1@2x.png"; sourceTree = "<group>"; };
@@ -229,8 +226,6 @@
 				8A14E6F218692E0F001CC69E /* SKScene+Helper.m */,
 				8A14E6F318692E0F001CC69E /* SKSpriteButtonNode.h */,
 				8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */,
-				8A14E6F518692E0F001CC69E /* SKSpriteNode+PhysicsDebug.h */,
-				8A14E6F618692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m */,
 				8A14E6F718692E0F001CC69E /* SpriteKit-Helper.h */,
 			);
 			name = "SpriteKit-Helper";
@@ -306,7 +301,7 @@
 		8A14E6A518692D22001CC69E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bobo Shone";
 				TargetAttributes = {
 					8A14E6D418692D23001CC69E = {
@@ -382,7 +377,6 @@
 				8A14E6F818692E0F001CC69E /* SKHelper.m in Sources */,
 				8A14E6CC18692D23001CC69E /* GameScene.m in Sources */,
 				8A14E6FA18692E0F001CC69E /* SKScene+Helper.m in Sources */,
-				8A14E6FC18692E0F001CC69E /* SKSpriteNode+PhysicsDebug.m in Sources */,
 				8A14E6C918692D23001CC69E /* ViewController.m in Sources */,
 				8A14E6C318692D23001CC69E /* AppDelegate.m in Sources */,
 				8A14E6FB18692E0F001CC69E /* SKSpriteButtonNode.m in Sources */,
@@ -440,7 +434,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -479,7 +472,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -539,7 +531,6 @@
 		8A14E6EA18692D23001CC69E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpriteKitHelperDemo.app/SpriteKitHelperDemo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -562,7 +553,6 @@
 		8A14E6EB18692D23001CC69E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpriteKitHelperDemo.app/SpriteKitHelperDemo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

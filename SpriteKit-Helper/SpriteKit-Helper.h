@@ -13,6 +13,5 @@
 #import "SKScene+Helper.h"
 #import "SKSpriteButtonNode.h"
 #import "SKMusicPlayer.h"
-#import "SKSpriteNode+PhysicsDebug.h"
 
 #endif

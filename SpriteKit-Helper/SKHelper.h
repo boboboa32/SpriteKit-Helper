@@ -1,8 +1,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-#define SKDebug 1
-
 #define skp(x,y) CGPointMake(x,y)
 #define skp0 CGPointZero
 #define skpEquals CGPointEqualToPoint

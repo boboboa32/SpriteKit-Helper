@@ -156,7 +156,6 @@ typedef enum {
     self.monkey.physicsBody.categoryBitMask = kCategoryBitMaskMonkey;
     self.monkey.physicsBody.collisionBitMask = 0;
     self.monkey.physicsBody.contactTestBitMask = kCategoryBitMaskRock;
-    [self.monkey debugPhysicsWithPath:[UIBezierPath bezierPathWithCGPath:path]];
 }
 
 - (void)gameOver {
@@ -253,7 +252,7 @@ typedef enum {
     rock.physicsBody.categoryBitMask = kCategoryBitMaskRock;
     rock.physicsBody.collisionBitMask = 0;
     rock.physicsBody.contactTestBitMask = kCategoryBitMaskMonkey;
-    [rock debugPhysicsWithCirclePath];
+    rock.physicsBody.dynamic = NO;
 }
 
 #pragma mark - Touch Event
