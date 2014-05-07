@@ -218,6 +218,7 @@
 		8A14E6EC18692E0F001CC69E /* SpriteKit-Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8A14E6F718692E0F001CC69E /* SpriteKit-Helper.h */,
 				8A14E6ED18692E0F001CC69E /* SKHelper.h */,
 				8A14E6EE18692E0F001CC69E /* SKHelper.m */,
 				8A14E6EF18692E0F001CC69E /* SKMusicPlayer.h */,
@@ -226,7 +227,6 @@
 				8A14E6F218692E0F001CC69E /* SKScene+Helper.m */,
 				8A14E6F318692E0F001CC69E /* SKSpriteButtonNode.h */,
 				8A14E6F418692E0F001CC69E /* SKSpriteButtonNode.m */,
-				8A14E6F718692E0F001CC69E /* SpriteKit-Helper.h */,
 			);
 			name = "SpriteKit-Helper";
 			path = "../../SpriteKit-Helper";

@@ -10,44 +10,37 @@
 
 @import AVFoundation;
 
-@interface SKMusicPlayer () {
-    BOOL musicAvaliable_;
-    BOOL soundAvaliable_;
-}
+@interface SKMusicPlayer () 
 
-@property (nonatomic) AVAudioPlayer *musicPlayer;
+@property (nonatomic, strong) AVAudioPlayer *musicPlayer;
+@property (nonatomic, assign) BOOL musicEnabled;
+@property (nonatomic, assign) BOOL soundEnabled;
 
 @end
 
 @implementation SKMusicPlayer
 
-@synthesize musicAvaliable = musicAvaliable_;
-@synthesize soundAvaliable = soundAvaliable_;
-
 + (instancetype)musicPlayer {
-    static SKMusicPlayer *backgroundMusicPlayer_ = nil;
-    if (!backgroundMusicPlayer_) {
-        backgroundMusicPlayer_ = [SKMusicPlayer new];
-    }
-    return backgroundMusicPlayer_;
+    static SKMusicPlayer *_backgroundMusicPlayer = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _backgroundMusicPlayer = [SKMusicPlayer new];
+    });
+    return _backgroundMusicPlayer;
 }
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
-        musicAvaliable_ = YES;
-        soundAvaliable_ = YES;
+        _musicEnabled = YES;
+        _soundEnabled = YES;
     }
     return self;
 }
 
 - (void)playWithMusicName:(NSString *)fileName
                 musicType:(NSString *)fileType {
-    if (self.musicPlayer) {
-        [self.musicPlayer stop];
-        self.musicPlayer = nil;
-    }
+    [self stop];
     
     NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:fileName withExtension:fileType];
 
@@ -77,11 +70,11 @@
     }
 }
 
-- (void)setMusicAvaliable:(BOOL)musicAvaliable {
-    if (musicAvaliable_ != musicAvaliable) {
-        musicAvaliable_ = musicAvaliable;
+- (void)enableMusic:(BOOL)enabled {
+    if (self.musicEnabled != enabled) {
+        self.musicEnabled = enabled;
         
-        if (!musicAvaliable_) {
+        if (!self.musicEnabled) {
             [self.musicPlayer pause];
         }
         else {
@@ -90,8 +83,10 @@
     }
 }
 
-- (BOOL)musicAvaliable {
-    return musicAvaliable_;
+- (void)enableSound:(BOOL)enabled {
+    if (self.soundEnabled != enabled) {
+        self.soundEnabled = enabled;
+    }
 }
 
 - (void)playSoundEffectWithFile:(NSString *)file inNode:(SKNode *)node {
@@ -99,7 +94,7 @@
 }
 
 - (void)playSoundEffectWithFile:(NSString *)file inNode:(SKNode *)node completion:(void (^)())block {
-    if (self.soundAvaliable) {
+    if (self.soundEnabled) {
         [node runAction:[SKAction playSoundFileNamed:file waitForCompletion:NO] completion:block];
     }
 }

@@ -10,16 +10,6 @@
 
 @interface SKMusicPlayer : NSObject
 
-/**
- *  control music playing, such as background music
- */
-@property (nonatomic) BOOL musicAvaliable;
-
-/**
- *  control sound effect playing
- */
-@property (nonatomic) BOOL soundAvaliable;
-
 + (instancetype)musicPlayer;
 
 /**
@@ -45,6 +35,16 @@
  *  resume playing
  */
 - (void)resume;
+
+/**
+ *  control music playing, such as background music
+ */
+- (void)enableMusic:(BOOL)enabled;
+
+/**
+ *  control sound effect playing
+ */
+- (void)enableSound:(BOOL)enabled;
 
 /**
  *  Play sound effect

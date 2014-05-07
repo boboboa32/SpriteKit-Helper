@@ -8,18 +8,22 @@
 
 #import "SKSpriteButtonNode.h"
 
-@interface SKSpriteButtonNode () {
-    void (^_block)(SKSpriteButtonNode *buttonNode);
-    void (^_pressingBlock)(SKSpriteButtonNode *buttonNode);
-    void (^_highlightedBlock)(SKSpriteButtonNode *buttonNode, BOOL highlighted);
-}
+typedef void (^SKSpriteButtonNodeSelectedBlock)(SKSpriteButtonNode *buttonNode);
+typedef void (^SKSpriteButtonNodePressingBlock)(SKSpriteButtonNode *buttonNode);
+typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNode, BOOL highlighted);
 
-@property (nonatomic) SKTexture *normalTexture;
-@property (nonatomic) SKTexture *selectedTexture;
-@property (nonatomic) SKTexture *highlightedTexture;
+@interface SKSpriteButtonNode ()
 
-@property (nonatomic) BOOL isSelected;
-@property (nonatomic) BOOL isHighlighted;
+@property (nonatomic, strong) SKTexture *normalTexture;
+@property (nonatomic, strong) SKTexture *selectedTexture;
+@property (nonatomic, strong) SKTexture *highlightedTexture;
+
+@property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic, assign) BOOL isHighlighted;
+
+@property (nonatomic, copy) SKSpriteButtonNodeSelectedBlock selectedBlock;
+@property (nonatomic, copy) SKSpriteButtonNodePressingBlock pressingBlock;
+@property (nonatomic, copy) SKSpriteButtonNodeHighlightedBlock highlightedBlock;
 
 @end
 
@@ -39,9 +43,9 @@
                                 block:(void(^)(id buttonNode, BOOL highlighted))block {
     self = [super initWithTexture:normalTexture];
     if (self) {
-        self.normalTexture = normalTexture;
-        self.highlightedTexture = highlightedTexture;
-        self.highlightedBlock = block;
+        _normalTexture = normalTexture;
+        _highlightedTexture = highlightedTexture;
+        _highlightedBlock = block;
         self.userInteractionEnabled = YES;
     }
     return self;
@@ -62,10 +66,10 @@
                              endBlock:(void(^)(id buttonNode))endBlock {
     self = [super initWithTexture:normalTexture];
     if (self) {
-        self.normalTexture = normalTexture;
-        self.selectedTexture = selectedTexture;
-        self.block = endBlock;
-        self.pressingBlock = pressingBlock;
+        _normalTexture = normalTexture;
+        _selectedTexture = selectedTexture;
+        _selectedBlock = endBlock;
+        _pressingBlock = pressingBlock;
         self.userInteractionEnabled = YES;
     }
     return self;
@@ -105,7 +109,7 @@
         labelNode.position = skp0;
         [self addChild:labelNode];
         
-        self.block = block;
+        _selectedBlock = block;
         self.userInteractionEnabled = YES;
     }
     return self;
@@ -130,36 +134,12 @@
 }
 
 
-#pragma mark - Private 
-
-- (void)setNormalTexture:(SKTexture *)normalTexture {
-    if (normalTexture != _normalTexture) {
-        _normalTexture = normalTexture;
-    }
-}
-
-- (void)setSelectedTexture:(SKTexture *)selectedTexture {
-    if (selectedTexture != _selectedTexture) {
-        _selectedTexture = selectedTexture;
-    }
-}
-
-- (void)setBlock:(void(^)(id sender))block
-{
-    _block = [block copy];
-}
-
-- (void)setPressingBlock:(void(^)(id sender))block {
-    _pressingBlock = [block copy];
-}
-
-- (void)setHighlightedBlock:(void(^)(id sender, BOOL b))block {
-    _highlightedBlock = [block copy];
-}
+#pragma mark - Private
 
 - (void)pressing {
-    if (_pressingBlock) {
-        _pressingBlock(self);
+    if (self.pressingBlock) {
+        __weak SKSpriteButtonNode *buttonNode = self;
+        self.pressingBlock(buttonNode);
     }
 }
 
@@ -185,10 +165,11 @@
     }
 }
 
--(void) activate
-{
-	if( _block )
-		_block(self);
+-(void) activate {
+	if( self.selectedBlock ) {
+        __weak SKSpriteButtonNode *buttonNode = self;
+        self.selectedBlock(buttonNode);
+    }
 }
 
 - (void)highlighted {
@@ -202,8 +183,9 @@
             [self setTexture:self.normalTexture];
         }
         
-        if (_highlightedBlock) {
-            _highlightedBlock(self, self.isHighlighted);
+        if (self.highlightedBlock) {
+            __weak SKSpriteButtonNode *buttonNode = self;
+            self.highlightedBlock(buttonNode, self.isHighlighted);
         }
     }
 }
