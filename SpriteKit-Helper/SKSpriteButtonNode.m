@@ -158,7 +158,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
     self.isSelected = NO;
     
     if (self.selectedTexture) {
-        [self setTexture:self.normalTexture];
+        [self setTexture:self._normalTexture];
     }
     else {
         self.alpha = 1;
@@ -180,7 +180,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
             [self setTexture:self.highlightedTexture];
         }
         else {
-            [self setTexture:self.normalTexture];
+            [self setTexture:self._normalTexture];
         }
         
         if (self.highlightedBlock) {
