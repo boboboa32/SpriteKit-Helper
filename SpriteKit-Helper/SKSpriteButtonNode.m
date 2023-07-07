@@ -14,7 +14,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
 
 @interface SKSpriteButtonNode ()
 
-@property (nonatomic, strong) SKTexture *normalTexture;
+@property (nonatomic, strong) SKTexture *_normalTexture;
 @property (nonatomic, strong) SKTexture *selectedTexture;
 @property (nonatomic, strong) SKTexture *highlightedTexture;
 
@@ -43,7 +43,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
                                 block:(void(^)(id buttonNode, BOOL highlighted))block {
     self = [super initWithTexture:normalTexture];
     if (self) {
-        _normalTexture = normalTexture;
+        __normalTexture = normalTexture;
         _highlightedTexture = highlightedTexture;
         _highlightedBlock = block;
         self.userInteractionEnabled = YES;
@@ -66,7 +66,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
                              endBlock:(void(^)(id buttonNode))endBlock {
     self = [super initWithTexture:normalTexture];
     if (self) {
-        _normalTexture = normalTexture;
+        __normalTexture = normalTexture;
         _selectedTexture = selectedTexture;
         _selectedBlock = endBlock;
         _pressingBlock = pressingBlock;
@@ -158,7 +158,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
     self.isSelected = NO;
     
     if (self.selectedTexture) {
-        [self setTexture:self.normalTexture];
+        [self setTexture:self._normalTexture];
     }
     else {
         self.alpha = 1;
@@ -180,7 +180,7 @@ typedef void (^SKSpriteButtonNodeHighlightedBlock)(SKSpriteButtonNode *buttonNod
             [self setTexture:self.highlightedTexture];
         }
         else {
-            [self setTexture:self.normalTexture];
+            [self setTexture:self._normalTexture];
         }
         
         if (self.highlightedBlock) {
